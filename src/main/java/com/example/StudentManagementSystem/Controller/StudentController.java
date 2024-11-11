@@ -2,6 +2,7 @@ package com.example.StudentManagementSystem.Controller;
 
 import com.example.StudentManagementSystem.Service.StudentService;
 import com.example.StudentManagementSystem.model.Student;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +42,14 @@ public class StudentController {
     public ResponseEntity<String> deleteStudent(@PathVariable("id") long id){
         studentService.deleteStudent(id);
         return new ResponseEntity<String>("Student deleted Successfully.",HttpStatus.OK);
+    }
+
+    @GetMapping("/YearOfEnrollment/{yearOfEnrollment}")
+    public ResponseEntity<List<Student>>
+    getStudentByYearOfEnrollment(@PathVariable("yearOfEnrollment")String yearOfEnrollment){
+        List<Student> student = studentService.getStudentByYearOfEnrollment(yearOfEnrollment);
+        return new ResponseEntity<>(student,HttpStatus.OK);
+
     }
 
 
