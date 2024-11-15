@@ -52,5 +52,10 @@ public class StudentController {
 
     }
 
+    @GetMapping("/department/{id}")
+    public ResponseEntity<String> getDepartmentById(@PathVariable("id")long id){
+        String department = studentService.getDepartmentById(id);
+        return new ResponseEntity<>(department,HttpStatus.OK);
+    }
 
 }
