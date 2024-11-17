@@ -10,5 +10,6 @@ public interface StudentService {
     void deleteStudent(long id);
     List<Student>getStudentByYearOfEnrollment(String yearOfEnrollment);
     String getDepartmentById(long id);
+    void deleteStudentByYearOfEnrollment(String yearOfEnrollment);
 
 }
